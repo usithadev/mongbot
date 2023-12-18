@@ -1,4 +1,4 @@
-# Telegram bot for saveing and reading username and email
+# Telegram bot for saving and reading username and email
 
 This is a simple telegram bot that is used to save and read usernames and password.
 
