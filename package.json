@@ -1,0 +1,20 @@
+{
+  "name": "mdb",
+  "version": "1.0.0",
+  "description": "A simple telegram bot to save data in mongodb",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node index.js"
+  },
+  "author": "Usitha Indeewara",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "grammy": "^1.19.2",
+    "mongoose": "^8.0.3"
+  }
+}
