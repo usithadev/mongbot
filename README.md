@@ -7,7 +7,7 @@ This is a simple telegram bot that is used to save and read usernames and passwo
 Environmental variables to setup:
 
 - `BOT_TOKEN` : The bot token got from the https://t.me/botfather (@BotFather)
-- `DB_URI` : The URI of the MongoDB database server
+- `DB_URI` : The URI of the MongoDB database server (include the database name also). (eg: `mongodb://localhost:27017/testdb`)
 
 ### Installation
 
