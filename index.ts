@@ -42,6 +42,16 @@ bot.command("save", async ctx => {
     }
 });
 
+bot.command("delete", async ctx => {
+    const item: string = ctx.match;
+    if (item.match(/(\w*@\w+\.\w+)/gi)) {
+        const del = await User.deleteMany({ email: item });
+        ctx.reply(`Deleted ${item} successfully.`)
+    } else {
+        ctx.reply("Invalid format\\. Please use format `/delete example@example\.com`", { parse_mode: "MarkdownV2" });
+    }
+})
+
 bot.command("getall", async ctx => {
     const data = await User.find();
     let str: string = "";
