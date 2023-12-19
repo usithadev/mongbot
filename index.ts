@@ -1,4 +1,4 @@
-import { Bot } from "grammy";
+import { Bot, InlineKeyboard } from "grammy";
 import { config as env } from "dotenv"; env();
 import mongoose from "mongoose";
 
@@ -23,7 +23,11 @@ const User = mongoose.model("User", userSchema);
 const bot = new Bot(process.env.BOT_TOKEN as string);
 
 bot.command("start", ctx => {
-    ctx.reply("Hello World!");
+    const keyboard = new InlineKeyboard()
+        .url("Source code", "https://github.com/usithadev/mongbot")
+        .url("Developer", "https://stackoverflow.com/users/19099302/usitha-indeewara");
+
+    ctx.reply("Hello World! This is a simple telegram bot made for demonstrate MongoDB CRUD. \nSend /help to get how to use guide.", { reply_markup: keyboard });
 });
 
 bot.command("save", async ctx => {
