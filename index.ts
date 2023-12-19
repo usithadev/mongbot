@@ -30,6 +30,13 @@ bot.command("start", ctx => {
     ctx.reply("Hello World! This is a simple telegram bot made for demonstrate MongoDB CRUD. \nSend /help to get how to use guide.", { reply_markup: keyboard });
 });
 
+bot.command("help", ctx => {
+    ctx.reply("Commands:\n\n`/start` - Start the bot \n`/help` - Show this message \n`/save username example@email.com` - Save a new record \n`/delete example@email.com` - Delete a record \n`/getall` - See all data in the database",
+        {
+            parse_mode: "Markdown"
+        });
+})
+
 bot.command("save", async ctx => {
     const item: string = ctx.match;
     if (item.match(/(\w+) (\w*@\w+\.\w+)/gi)) {
