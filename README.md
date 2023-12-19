@@ -1,6 +1,6 @@
-# Telegram bot for saving and reading username and email
+# Telegram bot for Creating, Reading and Deleting username and email
 
-This is a simple telegram bot that is used to save and read usernames and password.
+This is a simple telegram bot that is used to create, read and delete usernames and emails.
 
 ## Developer manual
 
@@ -41,6 +41,7 @@ Commands:
 
 - `/start` - Start the bot
 - `/save username email@example.com` - Save a record
+- `/delete email@example.com` - Delete a record by the email
 - `/getall` - See all data in the database
 
 ## More info
