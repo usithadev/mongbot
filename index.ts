@@ -31,7 +31,7 @@ bot.command("start", ctx => {
 });
 
 bot.command("help", ctx => {
-    ctx.reply("Commands:\n\n`/start` - Start the bot \n`/help` - Show this message \n`/save username example@email.com` - Save a new record \n`/delete example@email.com` - Delete a record \n`/getall` - See all data in the database",
+    ctx.reply("Commands:\n\n`/start` - Start the bot \n`/help` - Show this message \n`/save username example@email.com` - Save a new record \n`/delete example@email.com` - Delete a record \n`/changeemail exsisting@email.com new@email.com` - Update an email by the email \n`/changename email@example.com new_name` - Update a name by an email \n`/getall` - See all data in the database",
         {
             parse_mode: "Markdown"
         });
@@ -72,6 +72,45 @@ bot.command("getall", async ctx => {
 
     ctx.reply(str);
 });
+
+bot.command("changename", async ctx => {
+    let item = ctx.match;
+    let reg = item.match(/(\w*@\w+\.\w+) (\w+)/);
+
+    if (reg) {
+        const user = await User.findOne({ email: reg[1] });
+        if (user) {
+            let updated = await User.findByIdAndUpdate(user._id, { name: reg[2], email: user.email });
+            updated?.save();
+
+            ctx.reply("Updated successfully");
+        } else {
+            ctx.reply("User not found!");
+        }
+    } else {
+        ctx.reply("Invalid syntax. Please use `/changename example@email.com new_name`", { parse_mode: "Markdown" });
+    }
+})
+
+bot.command("changeemail", async ctx => {
+    let item = ctx.match;
+    let reg = item.match(/(\w*@\w+\.\w+) (\w*@\w+\.\w+)/);
+
+    if (reg) {
+        const user = await User.findOne({ email: reg[1] });
+        if (user) {
+            let updated = await User.findByIdAndUpdate(user._id, { name: user.name, email: reg[2] });
+            updated?.save();
+
+            ctx.reply("Updated successfully");
+        } else {
+            ctx.reply("User not found!");
+        }
+    } else {
+        ctx.reply("Invalid syntax. Please use `/changename example@email.com new_email`", { parse_mode: "Markdown" });
+    }
+})
+
 
 
 
