@@ -1,6 +1,6 @@
-# Telegram bot for Creating, Reading and Deleting username and email
+# Telegram bot for Creating, Reading, Updating and Deleting username and email
 
-This is a simple telegram bot that is used to create, read and delete usernames and emails.
+This is a simple telegram bot that is used to create, read, update and delete usernames and emails. (ie. MongoDB CRUD)
 
 ## Developer manual
 
@@ -43,6 +43,8 @@ Commands:
 - `/save username email@example.com` - Save a record
 - `/delete email@example.com` - Delete a record by the email
 - `/getall` - See all data in the database
+- `/changeemail exisiting@email.com new@email.com` - Update an email by email
+- `/changename email@example.com new_name` - Update name by name
 
 ## More info
 
